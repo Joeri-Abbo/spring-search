@@ -42,7 +42,6 @@ public class BusinessJDBCTemplate implements BusinessDao {
         };
         sqlQuery.setDataSource(dataSource);
         sqlQuery.setSql(sql);
-        List<Business> businesses = sqlQuery.execute();
-        return businesses;
+        return sqlQuery.execute();
     }
 }
