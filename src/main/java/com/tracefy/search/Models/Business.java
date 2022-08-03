@@ -1,5 +1,8 @@
 package com.tracefy.search.Models;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Business {
     private String name;
     private String id;
@@ -8,6 +11,7 @@ public class Business {
     private String email;
     private String city;
     private String level;
+    private Object urls;
 
     public void setName(String name) {
         this.name = name;
@@ -63,5 +67,20 @@ public class Business {
 
     public String getLevel() {
         return level;
+    }
+
+    public Object getUrls() {
+        return urls;
+    }
+
+    public void setUrls(String id) {
+        HashMap<String, String> urls = new HashMap<String, String>();
+
+        urls.put("show", "/businesses/" + id);
+        urls.put("destroy", "/businesses/" + id);
+
+        String[] arr = new String[]{id};
+
+        this.urls = urls;
     }
 }

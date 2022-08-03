@@ -16,6 +16,7 @@ public class BusinessMapper implements RowMapper<Business> {
         business.setDepth(rs.getInt("depth"));
         business.setName(rs.getString("name"));
         business.setLevel(business.getDepth() == 0 ? "root" : "child");
+        business.setUrls(business.getId());
         return business;
     }
 }
