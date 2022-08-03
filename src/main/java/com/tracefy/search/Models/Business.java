@@ -77,17 +77,17 @@ public class Business {
     public void setUrls(String id) {
         HashMap<String, String> urls = new HashMap<String, String>();
 
-        urls.put("show", getShowUrl());
-        urls.put("destroy", getDestroyUrl());
+        urls.put("show", getShowUrl(id));
+        urls.put("destroy", getDestroyUrl(id));
 
-        this.urls = new String[]{id};
+        this.urls = urls;
     }
 
-    public String getShowUrl() {
-        return Url.getBackofficeUrl() + "/businesses/" + id;
+    public static String getShowUrl(String id) {
+        return Url.getBackofficeUrl() + "businesses/" + id;
     }
 
-    public String getDestroyUrl() {
-        return Url.getBackofficeUrl() + "/businesses/" + id + "/destroy";
+    public static String getDestroyUrl(String id) {
+        return Url.getBackofficeUrl() + "businesses/" + id + "/destroy";
     }
 }
