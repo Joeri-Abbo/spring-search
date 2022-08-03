@@ -25,8 +25,6 @@ public class Search {
         ObjectMapper mapper = new ObjectMapper();
         try {
             return mapper.writeValueAsString(businesses);
-
-            //System.out.println(json);
         } catch (JsonProcessingException e) {
             //
         }
