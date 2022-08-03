@@ -15,19 +15,13 @@ import java.util.List;
 @RestController
 public class Search {
     @GetMapping("api/search/businesses")
-    public String businesses(@RequestParam(value = "s", defaultValue = "") String name, @RequestParam(value = "amount", defaultValue = "25") String amount) {
+    public List<Business> businesses(@RequestParam(value = "s", defaultValue = "") String name, @RequestParam(value = "amount", defaultValue = "25") String amount) {
         ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
         BusinessJDBCTemplate businessJDBCTemplate = (BusinessJDBCTemplate) context.getBean("businessJDBCTemplate");
 
         System.out.println("Search - businesses | name: " + name + " amount : " + amount);
         List<Business> businesses = businessJDBCTemplate.listBusinesses(name, Integer.parseInt(amount));
 
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            return mapper.writeValueAsString(businesses);
-        } catch (JsonProcessingException e) {
-            //
-        }
-        return " O No something went really wrong";
+        return businesses;
     }
 }
