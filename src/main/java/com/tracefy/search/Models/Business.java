@@ -1,7 +1,8 @@
 package com.tracefy.search.Models;
 
+import com.tracefy.search.Helpers.Url;
+
 import java.util.HashMap;
-import java.util.Map;
 
 public class Business {
     private String name;
@@ -76,11 +77,17 @@ public class Business {
     public void setUrls(String id) {
         HashMap<String, String> urls = new HashMap<String, String>();
 
-        urls.put("show", "/businesses/" + id);
-        urls.put("destroy", "/businesses/" + id);
-
-        String[] arr = new String[]{id};
+        urls.put("show", getShowUrl(id));
+        urls.put("destroy", getDestroyUrl(id));
 
         this.urls = urls;
+    }
+
+    public static String getShowUrl(String id) {
+        return Url.getBackofficeUrl() + "businesses/" + id;
+    }
+
+    public static String getDestroyUrl(String id) {
+        return Url.getBackofficeUrl() + "businesses/" + id + "/destroy";
     }
 }
