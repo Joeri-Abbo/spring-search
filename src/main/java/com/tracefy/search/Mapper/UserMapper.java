@@ -35,7 +35,7 @@ public class UserMapper implements RowMapper<User> {
         user.setSubscriptions();
         user.setDeviceImei(rs.getString("device_imei"));
         user.setDevice();
-        user.setUrls(user.getId());
+        user.setUrls();
         return user;
     }
 }

@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class User {
     private String name;
-    private String id;
+    private static String id;
     private String phone;
     private String email;
     private String city;
@@ -119,25 +119,25 @@ public class User {
         return urls;
     }
 
-    public void setUrls(String id) {
+    public void setUrls() {
         HashMap<String, String> urls = new HashMap<String, String>();
 
-        urls.put("show", getShowUrl());
-        urls.put("destroy", getDestroyUrl());
-        urls.put("forceDestroy", getDestroyUrl());
+        urls.put("show", getShowUrl(id));
+        urls.put("destroy", getDestroyUrl(id));
+        urls.put("forceDestroy", getDestroyUrl(id));
 
         this.urls = urls;
     }
 
-    public String getShowUrl() {
+    public static String getShowUrl(String id) {
         return Url.getBackofficeUrl() + "businesses/" + id;
     }
 
-    public String getDestroyUrl() {
+    public static String getDestroyUrl(String id) {
         return Url.getBackofficeUrl() + "businesses/" + id + "/destroy";
     }
 
-    public String getForceDestroyUrl() {
+    public static String getForceDestroyUrl(String id) {
         return Url.getBackofficeUrl() + "businesses/" + id + "/force-destroy";
     }
 
