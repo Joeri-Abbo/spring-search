@@ -1,3 +1,3 @@
-# java-search
+# spring-search
 My play garden for learing java
 
