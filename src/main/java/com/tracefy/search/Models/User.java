@@ -309,7 +309,7 @@ public class User {
     public void setDevice() {
         HashMap<String, String> device = new HashMap<String, String>();
         device.put("imei", getDeviceImei());
-        device.put("show", Url.getBackofficeUrl() + "devices/" + getDeviceImei());
+        device.put("show", Device.getShowUrl(getDeviceImei()));
 
         this.device = device;
     }

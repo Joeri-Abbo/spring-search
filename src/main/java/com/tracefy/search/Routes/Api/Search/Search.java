@@ -1,8 +1,10 @@
 package com.tracefy.search.Routes.Api.Search;
 
 import com.tracefy.search.JDBC.BusinessJDBCTemplate;
+import com.tracefy.search.JDBC.DeviceJDBCTemplate;
 import com.tracefy.search.JDBC.UserJDBCTemplate;
 import com.tracefy.search.Models.Business;
+import com.tracefy.search.Models.Device;
 import com.tracefy.search.Models.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -36,4 +38,14 @@ public class Search {
         System.out.println("Search - Users | Loaded");
         return users;
     }
+
+//    @GetMapping("api/search/devices")
+//    public List<Device> devices(@RequestParam(value = "s", defaultValue = "") String name, @RequestParam(value = "amount", defaultValue = "25") String amount) {
+//        System.out.println("Search - Devices | name: " + name + " amount : " + amount);
+//        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+//        DeviceJDBCTemplate deviceJDBCTemplate = (DeviceJDBCTemplate) context.getBean("deviceJDBCTemplate");
+//        List<Device> devices = deviceJDBCTemplate.listDevices(name, Integer.parseInt(amount));
+//        System.out.println("Search - Devices | Loaded");
+//        return devices;
+//    }
 }
