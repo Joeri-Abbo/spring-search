@@ -1,3 +1,3 @@
 # spring-search
-My play garden for learing java
 
+Poc search in Spring
