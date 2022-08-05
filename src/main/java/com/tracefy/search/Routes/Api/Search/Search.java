@@ -21,14 +21,19 @@ public class Search {
         ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
         BusinessJDBCTemplate businessJDBCTemplate = (BusinessJDBCTemplate) context.getBean("businessJDBCTemplate");
         System.out.println("Search - businesses | name: " + name + " amount : " + amount);
-        return businessJDBCTemplate.listBusinesses(name, Integer.parseInt(amount));
+        List<Business> businesses = businessJDBCTemplate.listBusinesses(name, Integer.parseInt(amount));
+        System.out.println("Search - businesses | Loaded");
+
+        return businesses;
     }
 
     @GetMapping("api/search/users")
     public List<User> users(@RequestParam(value = "s", defaultValue = "") String name, @RequestParam(value = "amount", defaultValue = "25") String amount) {
+        System.out.println("Search - Users | name: " + name + " amount : " + amount);
         ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
         UserJDBCTemplate userJDBCTemplate = (UserJDBCTemplate) context.getBean("userJDBCTemplate");
-        System.out.println("Search - Users | name: " + name + " amount : " + amount);
-        return userJDBCTemplate.listUsers(name, Integer.parseInt(amount));
+        List<User> users = userJDBCTemplate.listUsers(name, Integer.parseInt(amount));
+        System.out.println("Search - Users | Loaded");
+        return users;
     }
 }
