@@ -23,4 +23,9 @@
           class="com.tracefy.search.JDBC.UserJDBCTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+    <!-- Definition for DeviceJDBCTemplate bean -->
+    <bean id="deviceJDBCTemplate"
+          class="com.tracefy.search.JDBC.DeviceJDBCTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
 </beans>
